@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2021 11:04:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Horario" table="horario" catalog="laboratorioetitc" optimistic-lock="version">
+        <id name="idHorario" type="java.lang.Integer">
+            <column name="id_horario" />
+            <generator class="identity" />
+        </id>
+        <property name="horaInicial" type="string">
+            <column name="hora_inicial" length="12" not-null="true" />
+        </property>
+        <property name="horaFinal" type="string">
+            <column name="hora_final" length="12" not-null="true" />
+        </property>
+        <property name="diasHabilitados" type="string">
+            <column name="dias_habilitados" length="250" />
+        </property>
+        <set name="laboratorios" table="laboratorio" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="HORARIO_id_horario" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Laboratorio" />
+        </set>
+    </class>
+</hibernate-mapping>

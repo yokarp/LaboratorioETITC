@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2021 11:04:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Grupo" table="grupo" catalog="laboratorioetitc" optimistic-lock="version">
+        <id name="idGrupo" type="java.lang.Integer">
+            <column name="id_grupo" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreGrupo" type="string">
+            <column name="nombre_grupo" length="45" not-null="true" />
+        </property>
+        <property name="cantidadIntegrantes" type="int">
+            <column name="cantidad_integrantes" not-null="true" />
+        </property>
+        <property name="responsable" type="string">
+            <column name="responsable" length="45" not-null="true" />
+        </property>
+        <set name="asignacions" table="asignacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GRUPO_id_grupo" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Asignacion" />
+        </set>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="GRUPO_id_grupo" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>

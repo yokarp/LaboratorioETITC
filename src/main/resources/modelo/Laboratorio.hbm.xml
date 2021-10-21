@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2021 11:04:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Laboratorio" table="laboratorio" catalog="laboratorioetitc" optimistic-lock="version">
+        <id name="idLaboratorio" type="int">
+            <column name="id_laboratorio" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="horario" class="modelo.Horario" fetch="select">
+            <column name="HORARIO_id_horario" not-null="true" />
+        </many-to-one>
+        <property name="nombreLaboratorio" type="string">
+            <column name="nombre_laboratorio" length="45" not-null="true" />
+        </property>
+        <property name="descripcionLaboratorio" type="string">
+            <column name="descripcion_laboratorio" length="250" not-null="true" />
+        </property>
+        <property name="imagenLaboratoiol" type="string">
+            <column name="imagen_laboratoiol" length="45" not-null="true" />
+        </property>
+        <property name="habilitado" type="byte">
+            <column name="habilitado" not-null="true" />
+        </property>
+        <set name="asignacions" table="asignacion" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="LABORATORIO_id_laboratorio" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Asignacion" />
+        </set>
+    </class>
+</hibernate-mapping>

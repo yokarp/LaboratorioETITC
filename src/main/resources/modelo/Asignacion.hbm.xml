@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2021 11:04:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Asignacion" table="asignacion" catalog="laboratorioetitc" optimistic-lock="version">
+        <id name="idAsignacion" type="java.lang.Integer">
+            <column name="id_asignacion" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="grupo" class="modelo.Grupo" fetch="select">
+            <column name="GRUPO_id_grupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="laboratorio" class="modelo.Laboratorio" fetch="select">
+            <column name="LABORATORIO_id_laboratorio" not-null="true" />
+        </many-to-one>
+        <property name="fechaAsiganacion" type="timestamp">
+            <column name="fecha_asiganacion" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

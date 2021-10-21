@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2021 11:04:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Usuario" table="usuario" catalog="laboratorioetitc" optimistic-lock="version">
+        <id name="idUsuario" type="int">
+            <column name="id_usuario" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="carrera" class="modelo.Carrera" fetch="select">
+            <column name="CARRERA_id_carrera" not-null="true" />
+        </many-to-one>
+        <many-to-one name="formularioCovid" class="modelo.FormularioCovid" fetch="select">
+            <column name="FORMULARIO_COVID_id_fc" not-null="true" />
+        </many-to-one>
+        <many-to-one name="grupo" class="modelo.Grupo" fetch="select">
+            <column name="GRUPO_id_grupo" not-null="true" />
+        </many-to-one>
+        <many-to-one name="rol" class="modelo.Rol" fetch="select">
+            <column name="ROL_id_rol" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="apellido" type="string">
+            <column name="apellido" length="45" not-null="true" />
+        </property>
+        <property name="correo" type="string">
+            <column name="correo" length="45" not-null="true" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="45" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="45" not-null="true" />
+        </property>
+        <property name="activo" type="byte">
+            <column name="activo" not-null="true" />
+        </property>
+        <property name="imagenUsuario" type="string">
+            <column name="imagen_usuario" length="250" not-null="true" />
+        </property>
+        <property name="semestre" type="int">
+            <column name="semestre" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

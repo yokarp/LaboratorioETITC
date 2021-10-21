@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/10/2021 11:04:01 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="modelo.Carrera" table="carrera" catalog="laboratorioetitc" optimistic-lock="version">
+        <id name="idCarrera" type="java.lang.Integer">
+            <column name="id_carrera" />
+            <generator class="identity" />
+        </id>
+        <property name="nombreCarrera" type="string">
+            <column name="nombre_carrera" length="45" not-null="true" />
+        </property>
+        <property name="facultad" type="string">
+            <column name="facultad" length="45" not-null="true" />
+        </property>
+        <set name="usuarios" table="usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CARRERA_id_carrera" not-null="true" />
+            </key>
+            <one-to-many class="modelo.Usuario" />
+        </set>
+    </class>
+</hibernate-mapping>
