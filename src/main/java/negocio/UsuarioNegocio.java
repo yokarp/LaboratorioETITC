@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package negocio;
+
 import java.util.ArrayList;
 import java.util.List;
 import modelo.HibernateUtil;
@@ -18,7 +19,7 @@ import modelo.Usuario;
  * @author briay
  */
 public class UsuarioNegocio {
-    
+
     private SessionFactory sf = HibernateUtil.getSessionFactory();
     private Session ss = sf.openSession();
     private Transaction tst = ss.beginTransaction();
@@ -28,19 +29,19 @@ public class UsuarioNegocio {
         ss = sf.openSession();
         tst = ss.beginTransaction();
     }
-    
-    private void push(){
+
+    private void push() {
         ss.flush();
         tst.commit();
-        ss.close();   
+        ss.close();
     }
-    
-    public void insertUsuario(Usuario record){
+
+    public void insertUsuario(Usuario record) {
         this.init();
         ss.save(record);
         this.push();
     }
-    
+
     public Usuario findById(int id) {
         this.init();
         Usuario rol = new Usuario();
@@ -48,23 +49,23 @@ public class UsuarioNegocio {
         this.push();
         return rol;
     }
-    
-    public void update(Usuario record){
+
+    public void update(Usuario record) {
         this.init();
         ss.update(record);
         this.push();
     }
-    
-    public List<Usuario> findAll(){
-        List<Usuario> lst= new ArrayList<>();
+
+    public List<Usuario> findAll() {
+        List<Usuario> lst = new ArrayList<>();
         this.init(); //Select *
         Query query = ss.createQuery("from Usuario");
         lst = query.list();
         this.push();
         return lst;
     }
-    
-    public Usuario findByEmail(String identification){
+
+    public Usuario findByEmail(String identification) {
         Usuario us = new Usuario();
         this.init();
         Query query = ss.createQuery("FROM Usuario U WHERE U.correo = :parametroBusqueda");
@@ -72,6 +73,16 @@ public class UsuarioNegocio {
         us = (Usuario) query.uniqueResult();
         this.push();
         return us;
-    }
     
+    } 
+
+    public List<Usuario> findByGroup(int group) {
+        List<Usuario> lst = new ArrayList<>();
+        this.init();
+        Query query = ss.createQuery("FROM Usuario U WHERE U.grupo.idGrupo = :id");
+        query.setParameter("id", group);
+        lst = query.list();
+        return lst;
+    }
+
 }

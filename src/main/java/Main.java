@@ -264,7 +264,7 @@ public class Main {
         FormularioCovid formularioCovid = new FormularioCovid();
         formularioCovid = FormularioCovidBuss.findById(1);
         Grupo grupo = new Grupo();
-        grupo = grupoBuss.findById(1);
+        grupo = grupoBuss.findById(2);
         Rol rol = new Rol();
         rol = rolBuss.findById(1);
         Usuario Usuario = new Usuario(1019141498, carrera, formularioCovid, grupo, rol,
@@ -283,7 +283,7 @@ public class Main {
         //Return all
         /*Usuario Usuario = new Usuario();
         List<Usuario> listUsuario = new ArrayList<>();
-        listUsuario = UsuarioBuss.findAll();
+        listUsuario = UsuarioBuss.findByGroup(1);
         for(Usuario u : listUsuario){
             System.out.println(u.toString());
         }*/
