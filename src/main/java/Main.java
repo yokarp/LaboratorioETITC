@@ -281,22 +281,17 @@ public class Main {
         System.out.println(Usuario.toString());*/
         
         //Return all
-        /*Usuario Usuario = new Usuario();
+        Usuario Usuario = new Usuario();
         List<Usuario> listUsuario = new ArrayList<>();
         listUsuario = UsuarioBuss.findByGroup(1);
         for(Usuario u : listUsuario){
             System.out.println(u.toString());
-        }*/
+        }
         
         //Search for name resposable
         /*Usuario Usuario = new Usuario();
         Usuario = UsuarioBuss.findByEmail("bfrojasg@itc.edu.co");
         System.out.println(Usuario.toString());*/
-        
-        
-        
-        
-        
         
         
         /*
