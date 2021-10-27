@@ -1,3 +1,5 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
@@ -115,9 +117,16 @@ public class Main {
         }*/
         
         //Search for name resposable
-        /*Grupo grupo = new Grupo();
-        grupo = grupoBuss.findByResponsable("Enrrique Caballero");
-        System.out.println(grupo.toString());*/
+        try{
+            Grupo grupo = new Grupo();
+            grupo = grupoBuss.findBynameGroup("S7R");
+            System.out.println("Paso");
+        }catch(Exception e){
+            //System.out.println(e.getMessage());
+            //System.out.println(e.getCause());
+            System.out.println("Fallo");
+        }
+        //System.out.println(grupo.getIdGrupo());
         
         
         //FormularioCovid
@@ -241,6 +250,11 @@ public class Main {
         AsignacionBuss.update(Asignacion);
         System.out.println(Asignacion.toString());*/
         
+        
+        
+        
+        
+        
         //Return all
         /*Asignacion Asignacion = new Asignacion();
         List<Asignacion> listAsignacion = new ArrayList<>();
@@ -249,10 +263,20 @@ public class Main {
             System.out.println(u.toString());
         }*/
         
-        //Search for name resposable
-        /*Asignacion Asignacion = new Asignacion();
-        Asignacion = AsignacionBuss.findById(1);
-        System.out.println(Asignacion.toString());*/
+        //Search for date
+        Asignacion Asignacion = new Asignacion();
+        
+        /*String fecha = "2021-10-21 14:00:00";
+        SimpleDateFormat fechaFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            {
+            try {
+                Date date = fechaFormat.parse(fecha);
+                Asignacion = AsignacionBuss.findByDate(date);
+                System.out.println(Asignacion.getIdAsignacion());
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }*/
         
         
         //Usuario
@@ -274,21 +298,21 @@ public class Main {
         
         //Return and change field
         /*Usuario Usuario = new Usuario();
-        Usuario = UsuarioBuss.findById(1030657287);
-        System.out.println(Usuario.toString());
-        Usuario.setApellido("Rojas");
+        Usuario = UsuarioBuss.findById(1019141498);
+        System.out.println(Usuario.getApellido());*/
+        /*Usuario.setApellido("Rojas");
         UsuarioBuss.update(Usuario);
         System.out.println(Usuario.toString());*/
         
         //Return all
-        Usuario Usuario = new Usuario();
+        /*Usuario Usuario = new Usuario();
         List<Usuario> listUsuario = new ArrayList<>();
         listUsuario = UsuarioBuss.findByGroup(1);
         for(Usuario u : listUsuario){
             System.out.println(u.toString());
-        }
+        }*/
         
-        //Search for name resposable
+        //Search for email
         /*Usuario Usuario = new Usuario();
         Usuario = UsuarioBuss.findByEmail("bfrojasg@itc.edu.co");
         System.out.println(Usuario.toString());*/

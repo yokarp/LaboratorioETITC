@@ -63,10 +63,10 @@ public class GrupoNegocio {
         return lst;
     }
     
-    public Grupo findByResponsable(String identification){
+    public Grupo findBynameGroup(String identification){
         Grupo us = new Grupo();
         this.init();
-        Query query = ss.createQuery("FROM Grupo U WHERE U.responsable = :parametroBusqueda");
+        Query query = ss.createQuery("FROM Grupo U WHERE U.nombreGrupo = :parametroBusqueda");
         query.setParameter("parametroBusqueda", identification);
         us = (Grupo) query.uniqueResult();
         this.push();

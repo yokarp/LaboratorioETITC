@@ -5,6 +5,7 @@
  */
 package negocio;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import modelo.HibernateUtil;
 import org.hibernate.Query;
@@ -64,11 +65,11 @@ public class AsignacionNegocio {
         return lst;
     }
     
-    public Asignacion findById(Integer identification){
+    public Asignacion findByDate(Date fecha){
         Asignacion us = new Asignacion();
         this.init();
-        Query query = ss.createQuery("FROM Asignacion U WHERE U.idAsignacion = :parametroBusqueda");
-        query.setParameter("parametroBusqueda", identification);
+        Query query = ss.createQuery("FROM Asignacion U WHERE U.fechaAsiganacion = :date");
+        query.setParameter("date", fecha);
         us = (Asignacion) query.uniqueResult();
         this.push();
         return us;
