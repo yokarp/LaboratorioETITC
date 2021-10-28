@@ -3,6 +3,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.util.Stack;
 import modelo.Asignacion;
 import modelo.Carrera;
 import modelo.FormularioCovid;
@@ -58,9 +59,9 @@ public class Main {
         }*/
         
         //Search for name rol
-        /*Rol rol = new Rol();
+        Rol rol = new Rol();
         rol = rolBuss.findByNameRol("Admin");
-        System.out.println(rol.toString());*/
+        System.out.println(rol.toString());
         
         //CARRERA
         CarreraNegocio carreraBuss = new CarreraNegocio();
@@ -117,7 +118,7 @@ public class Main {
         }*/
         
         //Search for name resposable
-        try{
+        /*try{
             Grupo grupo = new Grupo();
             grupo = grupoBuss.findBynameGroup("S7R");
             System.out.println("Paso");
@@ -125,9 +126,8 @@ public class Main {
             //System.out.println(e.getMessage());
             //System.out.println(e.getCause());
             System.out.println("Fallo");
-        }
+        }*/
         //System.out.println(grupo.getIdGrupo());
-        
         
         //FormularioCovid
         FormularioCovidNegocio FormularioCovidBuss = new FormularioCovidNegocio();
@@ -214,12 +214,15 @@ public class Main {
         System.out.println(laboratorio.toString());*/
         
         //Return all
-        /*Laboratorio Laboratorio = new Laboratorio();
+        Laboratorio Laboratorio = new Laboratorio();
         List<Laboratorio> listLaboratorio = new ArrayList<>();
         listLaboratorio = LaboratorioBuss.findAll();
+        Stack<String> names = new Stack<String>();
         for(Laboratorio u : listLaboratorio){
             System.out.println(u.toString());
-        }*/
+            names.push(u.getNombreLaboratorio());
+        }
+        System.out.println(names);
         
         //Search for enabled
         /*Laboratorio Laboratorio = new Laboratorio();
