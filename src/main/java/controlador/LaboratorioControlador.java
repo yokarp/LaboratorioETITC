@@ -7,6 +7,7 @@ package controlador;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 import modelo.Laboratorio;
 import negocio.LaboratorioNegocio;
 
@@ -22,25 +23,24 @@ public class LaboratorioControlador {
     
     public void createLaboratorio(){
         Laboratorio labLocal = new Laboratorio();
-        try { 
-            Laboratorio Laboratorio = new Laboratorio();
+        try {
             List<Laboratorio> listLaboratorio = new ArrayList<>();
             listLaboratorio = laBuss.findAll();
+            Stack<String> names = new Stack<String>();
+            
             for(Laboratorio u : listLaboratorio){
-                System.out.println(u.toString());
+                names.push(u.getNombreLaboratorio());
             }
-            /*
-            Laboratorio Laboratorio = new Laboratorio();
-            List<Laboratorio> listLaboratorio = new ArrayList<>();
-            listLaboratorio = LaboratorioBuss.findAll();
-            for(Laboratorio u : listLaboratorio){
-            System.out.println(u.toString());
-            }
-        }
-            */
+            
             labLocal = laBuss.findByName(nameLabo);
-            if(labLocal.getNombreLaboratorio() == ""){
-                    
+            
+            for(String name:names){
+                if(name != labLocal.getNombreLaboratorio()){
+                    //Crear laboratorio
+                    laBuss.insertLaboratorio(laboratorio);
+                }else{
+                    //Error por pantalla
+                }
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -49,25 +49,4 @@ public class LaboratorioControlador {
         
     }
     
-    
-    /**
-    private Rol rol = new Rol();
-    private RolNegocio rolBuss = new RolNegocio();
-    private String nameRol;
-    
-    public void creteRol(){
-        Rol rolLocal = new Rol();
-        try {
-            rolLocal = rolBuss.findByNameRol(nameRol);
-            if(rolLocal.getNombreRol() == "Admin"){
-                //No se crea
-            }else {
-                rolBuss.insertRol(rol);
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-            System.out.println(ex.getCause());
-        }
-    }
-     **/
 }
