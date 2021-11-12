@@ -19,7 +19,7 @@ public class LoginControlador extends ActionSupport {
     @Override
     public String execute() {
         try {
-            if (user.equals("admin") && pass.equals("1234")) {
+            if (user.equals("") || pass.equals("")) {
                 return SUCCESS;
             } else {
                 return ERROR;
