@@ -51,17 +51,17 @@ public class Main {
         System.out.println(rol.toString());*/
         
         //Return all
-        /*Rol rol = new Rol();
+        Rol rol = new Rol();
         List<Rol> listRol = new ArrayList<>();
         listRol = rolBuss.findAll();
         for(Rol u : listRol){
             System.out.println(u.toString());
-        }*/
+        }
         
         //Search for name rol
-        Rol rol = new Rol();
-        rol = rolBuss.findByNameRol("Admin");
-        System.out.println(rol.toString());
+        //Rol rol = new Rol();
+        //rol = rolBuss.findByNameRol("Admin");
+        //System.out.println(rol.toString());
         
         //CARRERA
         CarreraNegocio carreraBuss = new CarreraNegocio();
@@ -214,7 +214,7 @@ public class Main {
         System.out.println(laboratorio.toString());*/
         
         //Return all
-        Laboratorio Laboratorio = new Laboratorio();
+        /*Laboratorio Laboratorio = new Laboratorio();
         List<Laboratorio> listLaboratorio = new ArrayList<>();
         listLaboratorio = LaboratorioBuss.findAll();
         Stack<String> names = new Stack<String>();
@@ -222,7 +222,7 @@ public class Main {
             System.out.println(u.toString());
             names.push(u.getNombreLaboratorio());
         }
-        System.out.println(names);
+        System.out.println(names);*/
         
         //Search for enabled
         /*Laboratorio Laboratorio = new Laboratorio();

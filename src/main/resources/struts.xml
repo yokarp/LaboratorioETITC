@@ -13,7 +13,10 @@
             </result> 
             <result name="error">
                 ../error.jsp
-            </result>                           
+            </result>   
+            <result name="input">
+                login.jsp
+            </result>                        
         </action>
         <action name="redirectError">
             <result name="success">

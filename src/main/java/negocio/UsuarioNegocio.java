@@ -73,8 +73,8 @@ public class UsuarioNegocio {
         us = (Usuario) query.uniqueResult();
         this.push();
         return us;
-    
-    } 
+
+    }
 
     public List<Usuario> findByGroup(int group) {
         List<Usuario> lst = new ArrayList<>();
@@ -83,6 +83,16 @@ public class UsuarioNegocio {
         query.setParameter("id", group);
         lst = query.list();
         return lst;
+    }
+
+    public Usuario findByCredential(String email, String password) {
+        Usuario usr = new Usuario();
+        this.init();
+        Query query = ss.createQuery("FROM Usuario U WHERE U.correo = :email AND U.contrasena = :password");
+        query.setParameter("email", email);
+        query.setParameter("password", password);
+        usr = (Usuario) query.uniqueResult();
+        return usr;
     }
 
 }
