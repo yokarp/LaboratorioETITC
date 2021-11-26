@@ -5,8 +5,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login</title>
-        
+        <title>Inicio</title>
     </head>
     <body>
         <s:form>
@@ -15,7 +14,7 @@
             <s:label>Nombres: </s:label>
             <s:property value="selectedUsuario.nombre"/>
             <s:label>Apellidos: </s:label>
-            <s:property value="selectedUsuario.apellido" />
+            <s:property value="selectedUsuario.apellido"/>
         </s:form>
     </body>
 </html>

@@ -1,0 +1,60 @@
+.bodyLogin{
+    background: radial-gradient(circle, rgba(158,189,19,1) 0%, rgba(0,133,82,1) 100%); 
+}
+
+.imgETITC{
+    width: 60%;
+    margin-left: 20%;
+    margin-bottom: -7%;
+}
+
+.cardLogin{
+    background-color: white; width: 20%;
+    margin: 18% 0% 0% 40%;
+    border-radius: 1em;
+}
+
+.center{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.buttonGreen{
+    background-color: green;
+    border-radius:4em;
+    color: white;
+    height: 35px;
+    font-weight: 800;
+}
+
+.input{
+    text-align:center;
+    border-radius: 0.5em;
+    height: 25px;
+}
+
+.green{
+    color: green;
+}
+
+.selectStatus {
+    width: 100%;
+    border-radius: 0.5em;
+    height: 33px;
+    text-align: center;
+    border: 2px solid black;
+}
+
+@media only screen and (max-width: 200px) {
+    .cardLogin{
+    margin: 18% 0% 0% 40%;
+    }
+    .green{
+        color: red;
+    }
+}
