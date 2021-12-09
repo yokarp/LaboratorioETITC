@@ -13,22 +13,21 @@
             <img src="http://www.sapote.co/itc/wp-content/uploads/2016/11/etitc-logo-1.png" alt="logo" class="imgETITC"></img>
             <h2 class="text-center">CREAR USUARIO</h2>
             <div class="center">
-                <s:form action="redirectWelcome">
-                <s:textfield type="number" name="id" placeholder="Identificación" cssClass="input"></s:textfield>
-                <s:textfield name="name" placeholder="Nombre" cssClass="input"></s:textfield>
-                <s:textfield name="last_name" placeholder="Apellido" cssClass="input"></s:textfield>
-                <s:textfield name="email" placeholder="Correo" cssClass="input" required="required"></s:textfield>
-                <s:textfield name="phone" placeholder="Celular" cssClass="input"></s:textfield>
-                <s:password name="pass" placeholder="Contraseña" cssClass="input"></s:password>
-                <s:select name = "status" list = "{'Activo','Inactivo'}" cssClass="selectStatus"></s:select>
-                <s:textfield name="img" placeholder="Url imagen" cssClass="input"></s:textfield>
-                <s:textfield name="semester" placeholder="Semestre" cssClass="input"></s:textfield>
-                <s:textfield name="team" placeholder="Grupo" cssClass="input"></s:textfield>
-                <s:textfield name="carrera" placeholder="Carrera" cssClass="input"></s:textfield>
-                <s:select name="rol" list = "{'Estudiante','Docente'}" cssClass="selectStatus"></s:select>
-                <s:select name="rol" list = "{'Tengo vacuna covid','No estoy vacunado'}" cssClass="selectStatus"></s:select>
-                <s:fielderror fieldName="user"/>
-                <s:submit value="CREAR USUARIO" style="width:98%" cssClass="buttonGreen"></s:submit>
+                <s:form action="createUser">
+                    <s:textfield type="number" name="usuario.idUsuario" placeholder="Identificación" cssClass="input"></s:textfield>
+                    <s:textfield name="usuario.nombre" placeholder="Nombre" cssClass="input"></s:textfield>
+                    <s:textfield name="usuario.apellido" placeholder="Apellido" cssClass="input"></s:textfield>
+                    <s:textfield name="usuario.correo" placeholder="Correo" cssClass="input" required="required"></s:textfield>
+                    <s:textfield name="usuario.celular" placeholder="Celular" cssClass="input"></s:textfield>
+                    <s:password name="usuario.contrasena" placeholder="Contraseña" cssClass="input"></s:password>
+                    <s:select  name ="usuario.activo" list = "{'Activo','Inactivo'}" cssClass="selectStatus"></s:select>
+                    <s:textfield name="usuario.imagenUsuario" placeholder="Url imagen" cssClass="input"></s:textfield>
+                    <s:textfield name="usuario.semestre" placeholder="Semestre" cssClass="input"></s:textfield>
+                    <s:select name="idGrupoSelected" listKey="idGrupo" list="listGrupo" listValue="nombreGrupo" cssClass="selectStatus"></s:select>
+                    <s:select name="idCarreraSelected" listKey="idCarrera" list="listCarrera" listValue="nombreCarrera" cssClass="selectStatus"></s:select>
+                    <s:select name="idRol" list = "listRol" listKey="idRol" listValue="nombreRol" cssClass="selectStatus"></s:select>
+                    <s:select name="usuario.formularioCovid" list = "{'Tengo vacuna covid','No estoy vacunado'}" cssClass="selectStatus"></s:select>
+                    <s:submit value="CREAR USUARIO" style="width:98%" cssClass="buttonGreen"></s:submit>
                 </s:form>
             </div>
         </div>

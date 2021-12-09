@@ -9,19 +9,39 @@
     <package name="controlador" namespace="/" extends="struts-default">
         <action name="redirectWelcome" class="controlador.LoginControlador" method="execute">
             <result name="success">
-                ../welcome.jsp
-            </result> 
+                horario.jsp
+            </result>
             <result name="error">
                 ../error.jsp
-            </result>   
+            </result>
             <result name="input">
                 login.jsp
-            </result>                        
+            </result>                 
         </action>
         <action name="redirectError">
             <result name="success">
                 error.jsp                
             </result>
         </action>
+        <action name="redirectCreateUser" class="controlador.UsuarioControlador" method="execute">
+            <result name="success">
+                createUser.jsp
+            </result>
+        </action>
+        <action name="createUser" class="controlador.UsuarioControlador" method="createUserStudent">
+            <result name="success">
+                ../welcome.jsp
+            </result>
+        </action>
+        <action name="horarioInit" class="controlador.HorarioControlador" method="execute">
+            <result name="success">
+                horario.jsp
+            </result>
+            <result name="error">
+                login.jsp
+            </result>
+        </action>
+        
+        
     </package>
 </struts>

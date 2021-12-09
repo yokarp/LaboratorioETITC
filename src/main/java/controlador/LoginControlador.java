@@ -6,14 +6,17 @@
 package controlador;
 
 import com.opensymphony.xwork2.ActionSupport;
+import java.util.Map;
 import modelo.Usuario;
 import negocio.UsuarioNegocio;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.SessionAware;
 
 /**
  *
  * @author briay
  */
-public class LoginControlador extends ActionSupport {
+public class LoginControlador extends ActionSupport implements SessionAware{
 
     private String user;
     private String pass;
@@ -21,14 +24,16 @@ public class LoginControlador extends ActionSupport {
     private String apellidos;
     private UsuarioNegocio usrBuss = new UsuarioNegocio();
     private Usuario selectedUsuario = new Usuario();
+    private Map<String, String> sessionMap;
 
-    @Override
+    
     public String execute() {
         if((!user.isEmpty()) && (!pass.isEmpty())){
             selectedUsuario = usrBuss.findByCredential(user, pass);
+            this.sessionMap.put("login", "true");
             return SUCCESS;
         }else{
-            return  INPUT;
+            return INPUT;
         }
         /*
         if (user.equals("admin")) {
@@ -36,6 +41,10 @@ public class LoginControlador extends ActionSupport {
         } else {
             return ERROR;
         }*/
+    }    
+    
+    public void setSession(Map map){
+        this.sessionMap = (SessionMap) map;
     }
 
     public String getUser() {
@@ -76,6 +85,6 @@ public class LoginControlador extends ActionSupport {
 
     public void setSelectedUsuario(Usuario selectedUsuario) {
         this.selectedUsuario = selectedUsuario;
-    }
+    }    
 
 }

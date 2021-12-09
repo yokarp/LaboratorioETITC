@@ -56,7 +56,7 @@ public class CarreraNegocio {
     }
     
     public List<Carrera> findAll(){
-        List<Carrera> lst= new ArrayList<>();
+        List<Carrera> lst = new ArrayList<>();
         this.init(); //Select *
         Query query = ss.createQuery("from Carrera");
         lst = query.list();

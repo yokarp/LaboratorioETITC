@@ -21,7 +21,7 @@
                 </s:form>
             </div>
             <div class="text-center" style="margin: 10px">
-                <a href="createUser.jsp" class="green">Crear usuario</a>
+                <a href="<s:url action="redirectCreateUser"/>" class="green">Crear usuario</a>
             </div>
         </div>
     </body>
