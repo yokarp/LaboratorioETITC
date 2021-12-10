@@ -9,11 +9,14 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 import modelo.Carrera;
+import modelo.FormularioCovid;
 import modelo.Grupo;
 import modelo.Rol;
 import modelo.Usuario;
 import negocio.CarreraNegocio;
+import negocio.FormularioCovidNegocio;
 import negocio.GrupoNegocio;
 import negocio.RolNegocio;
 import negocio.UsuarioNegocio;
@@ -37,16 +40,29 @@ public class UsuarioControlador extends ActionSupport{
     private int idCarreraSelected;
     private List <Carrera> listCarrera = new ArrayList<>();
     private CarreraNegocio carreraBuss = new CarreraNegocio();
+    private byte idActive;
+    private ArrayList listActive = new ArrayList();
     
-    Integer valorVerdadero = new Integer(1);
-    Integer valorFalso = new Integer(0);
-    //byte b = valor.byteValue();
+    private int idFc;
+    private List <FormularioCovid> listCovid = new ArrayList();
+    private FormularioCovidNegocio covidBuss = new FormularioCovidNegocio();
+    
+    public UsuarioControlador() {
+        Integer valorVerdadero = new Integer(1);
+        Integer valorFalso = new Integer(0);
+        byte v = valorVerdadero.byteValue();
+        byte f = valorFalso.byteValue();
+        this.listActive.add(v);
+        this.listActive.add(f);
+    }
+    
     
     @Override
     public String execute(){
         this.listRol = this.rolBuss.findAll();
         this.listGrupo = this.grupoBuss.findAll();
         this.listCarrera = this.carreraBuss.findAll();
+        this.listCovid = this.covidBuss.findAll();
         return SUCCESS;
     }
 
@@ -59,12 +75,13 @@ public class UsuarioControlador extends ActionSupport{
                 this.usuario.setRol(this.rolBuss.findById(idRol));
                 this.usuario.setGrupo(this.grupoBuss.findById(idGrupoSelected));
                 this.usuario.setCarrera(this.carreraBuss.findById(idCarreraSelected));
+                this.usuario.setActivo(this.idActive);
+                this.usuario.setFormularioCovid(this.covidBuss.findById(2));
                 usuarioBuss.insertUsuario(usuario);
                 System.out.println(usuario);
                 return SUCCESS;
             } else {
                 return ERROR;
-                //Error por pantalla
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
@@ -152,5 +169,39 @@ public class UsuarioControlador extends ActionSupport{
     public void setCarreraBuss(CarreraNegocio carreraBuss) {
         this.carreraBuss = carreraBuss;
     }
+    // Prueba
 
+    public int getIdCovid() {
+        return idFc;
+    }
+
+    public void setIdCovid(int idCovid) {
+        this.idFc = idCovid;
+    }
+
+    public List<FormularioCovid> getListCovid() {
+        return listCovid;
+    }
+
+    public void setListCovid(List<FormularioCovid> listCovid) {
+        this.listCovid = listCovid;
+    }
+
+    public byte getIdActive() {
+        return idActive;
+    }
+
+    public void setIdActive(byte idActive) {
+        this.idActive = idActive;
+    }
+
+    public ArrayList getListActive() {
+        return listActive;
+    }
+
+    public void setListActive(ArrayList listActive) {
+        this.listActive = listActive;
+    }
+    
+    
 }

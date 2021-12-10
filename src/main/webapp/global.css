@@ -30,6 +30,39 @@
     color: white;
     height: 35px;
     font-weight: 800;
+    cursor: pointer;
+}
+
+.buttonBlue{
+    background-color: rgb(25, 93, 189);
+    border-radius: 0.5em;
+    color: white;
+    height: 35px;
+    font-weight: 600;
+    width: 150px;
+    cursor: pointer;
+}
+
+.buttonRed{
+    background-color: red;
+    border-radius: 0.5em;
+    color: white;
+    height: 35px;
+    font-weight: 600;
+    width: 150px;
+    cursor: pointer;
+}
+
+.buttonBlue:hover{
+    zoom: 1.1;
+}
+
+.buttonRed:hover{
+    zoom: 1.1;
+}
+
+.buttonGreen:hover{
+    zoom: 1.1;
 }
 
 .input{
@@ -48,6 +81,30 @@
     height: 33px;
     text-align: center;
     border: 2px solid black;
+}
+
+.panel{
+    width: 10vw;
+    height: 100vh;
+    text-align: center;
+    background-color: grey;
+}
+
+.dashboard{
+    width: 90vw;
+    height: 100vh;
+}
+
+.imagenD{
+    text-align: center;
+    margin: 0px;
+    width: 300px;
+}
+
+.imagenT{
+    width: 600px;
+    margin: 0 0 0 30vw;
+    border-radius: 1em; 
 }
 
 @media only screen and (max-width: 200px) {
