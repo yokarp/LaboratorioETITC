@@ -28,6 +28,11 @@
                 createUser.jsp
             </result>
         </action>
+        <action name="redirectLaboratories" class="controlador.LaboratorioControlador" method="execute">
+            <result name="success">
+                view/laboratories.jsp
+            </result>
+        </action>
         <action name="createUser" class="controlador.UsuarioControlador" method="createUserStudent">
             <result name="success">
                 login.jsp
@@ -42,6 +47,14 @@
             </result>
             <result name="error">
                 login.jsp
+            </result>
+        </action>
+         <action name="LaboratoriosInit" class="controlador.LaboratorioControlador" method="execute">
+            <result name="success">
+                laboratories.jsp
+            </result>
+            <result name="error">
+                ../welcome.jsp
             </result>
         </action>
         

@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import static com.opensymphony.xwork2.Action.INPUT;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -17,12 +19,25 @@ import negocio.LaboratorioNegocio;
  */
 public class LaboratorioControlador {
     
-    private Laboratorio laboratorio = new Laboratorio();
+    
+    private List<Laboratorio> laboratorios = new ArrayList<>();
     private LaboratorioNegocio laBuss = new LaboratorioNegocio();
     private String nameLabo;
     
+     public String execute() {
+        laboratorios = laBuss.findAll();
+        System.out.println(laboratorios);
+        System.out.println();
+        return SUCCESS;
+    }
+     
+    public LaboratorioControlador() {
+        System.out.println("Hola mundo constructor");
+    }
+     
+    
     public void createLaboratorio(){
-        Laboratorio labLocal = new Laboratorio();
+        /*Laboratorio labLocal = new Laboratorio();
         try {
             List<Laboratorio> listLaboratorio = new ArrayList<>();
             listLaboratorio = laBuss.findAll();
@@ -45,7 +60,7 @@ public class LaboratorioControlador {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
             System.out.println(ex.getCause());
-        }
+        }*/
         
     }
     

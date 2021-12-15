@@ -21,12 +21,13 @@
                 <s:property value="selectedUsuario.carrera.facultad"/><br/>
             </h4>
                 <a href="../index.html"><button type="button" class="buttonBlue">Inicio</button></a>
-                <button type="button" class="buttonBlue">Laborarorios</button>
+                <!-- <button type="button" class="buttonBlue"> <a href="http://localhost:13602/LaboratoriosETITC/view/laboratories.jsp"/>Laborarorios</a></button>-->
+                <button type="button" class="buttonBlue"> <a href="<s:url action="redirectLaboratories"/>" style="text-decoration: none; color: white;"/>Laborarorios</a></button>
                 <button type="button" class="buttonBlue">Solicitud laboratorio</button>
                 <button type="button" class="buttonBlue">Historial</button>
                 <a href="https://etitc.edu.co/archives/res1332018.pdf" target="_blank"><button type="button" class="buttonBlue">Reglas</button></a>
             <div style="margin-top: 45vh;">
-                <button type="button" class="buttonRed">Salir</button>
+                <button type="button" class="buttonRed"><a htref="/.exitSession">Salir</a></button>
             </div>
            
         <%--<s:form style="display: flex; flex-direction: column; background-color: blue;">

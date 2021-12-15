@@ -35,13 +35,11 @@ public class LoginControlador extends ActionSupport implements SessionAware{
         }else{
             return INPUT;
         }
-        /*
-        if (user.equals("admin")) {
-            return SUCCESS;
-        } else {
-            return ERROR;
-        }*/
     }    
+    
+    public void exitSession(){
+        System.out.println("Hola mundo");
+    }
     
     public void setSession(Map map){
         this.sessionMap = (SessionMap) map;
